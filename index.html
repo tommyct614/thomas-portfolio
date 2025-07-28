@@ -2,314 +2,329 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
   <title>Thomas C Thomas – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts for modern, clean look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
+    :root {
+      --accent: #2563eb;
+      --accent-dark: #1947b3;
+      --bg: #fff;
+      --text: #1a2330;
+      --muted: #667085;
+      --border: #e5e9f2;
+      --shadow: 0 8px 32px rgba(37,99,235,0.10);
+    }
+
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      color: #2d3748;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      font-size: 17px;
       line-height: 1.7;
     }
-    
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    
-    .card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-      padding-bottom: 30px;
-      border-bottom: 2px solid #e2e8f0;
-    }
-    
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
-    }
-    
-    .subtitle {
-      font-size: 1.2rem;
-      color: #4a5568;
-      font-weight: 500;
-      margin-bottom: 15px;
-    }
-    
-    .contact-info {
+
+    body {
+      min-height: 100vh;
       display: flex;
+      align-items: flex-start;
       justify-content: center;
+      background: var(--bg);
+    }
+
+    .container {
+      background: var(--bg);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      max-width: 550px;
+      width: 100vw;
+      margin: 48px 0 32px 0;
+      padding: 44px 38px 38px 38px;
+      box-sizing: border-box;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s;
+    }
+
+    .header {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+      margin-top: 0;
+    }
+
+    .subtitle {
+      font-size: 1.06rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .contact {
+      display: flex;
       gap: 20px;
       flex-wrap: wrap;
-      margin-top: 15px;
+      font-size: 0.98em;
+      color: var(--muted);
+      align-items: center;
+      margin-bottom: 0;
     }
-    
-    .contact-item {
-      background: #f7fafc;
-      padding: 8px 16px;
-      border-radius: 25px;
-      text-decoration: none;
-      color: #4a5568;
-      transition: all 0.3s ease;
-      border: 1px solid #e2e8f0;
-    }
-    
-    .contact-item:hover {
-      background: #667eea;
-      color: white;
-      transform: translateY(-2px);
-    }
-    
-    h2 {
-      font-size: 2rem;
-      color: #2d3748;
-      margin: 40px 0 25px 0;
-      position: relative;
-      padding-left: 20px;
-    }
-    
-    h2::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      border-radius: 2px;
-    }
-    
-    .portfolio-section {
-      margin-bottom: 30px;
-    }
-    
-    .section-title {
-      font-size: 1.3rem;
-      color: #2d3748;
-      font-weight: 600;
-      margin-bottom: 15px;
-      padding: 10px 0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    
-    .portfolio-grid {
-      display: grid;
-      gap: 15px;
-      margin-bottom: 25px;
-    }
-    
-    .portfolio-item {
-      background: #f8fafc;
-      padding: 15px 20px;
-      border-radius: 10px;
-      border-left: 4px solid #667eea;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .portfolio-item:hover {
-      background: #edf2f7;
-      transform: translateX(5px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .portfolio-link {
-      color: #2d3748;
+
+    .contact a {
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
-      display: block;
+      transition: color 0.16s;
     }
-    
-    .portfolio-link:hover {
-      color: #667eea;
+    .contact a:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
     }
-    
-    .external-link::after {
-      content: '↗';
-      margin-left: 5px;
-      font-size: 0.8em;
-      opacity: 0.6;
+
+    .section {
+      margin-top: 36px;
     }
-    
-    .download-link {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
-      padding: 12px 24px;
-      border-radius: 25px;
-      text-decoration: none;
-      display: inline-block;
-      margin: 20px 0;
+
+    .section-title {
+      font-size: 1.14rem;
       font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      color: var(--accent);
+      letter-spacing: 0.01em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    
-    .download-link:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      background: linear-gradient(120deg, var(--accent) 70%, #90b4ff 100%);
+      border-radius: 2px;
+      margin-right: 7px;
     }
-    
-    .note {
-      background: #fff5cd;
-      border: 1px solid #f6e05e;
-      color: #744210;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 30px;
-      font-style: italic;
+
+    ul.portfolio-list {
+      list-style: none;
+      margin: 0 0 4px 0;
+      padding: 0;
     }
-    
-    @media (max-width: 768px) {
+    ul.portfolio-list li {
+      margin: 0 0 11px 0;
+      padding: 0;
+      transition: background 0.13s;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+    }
+    ul.portfolio-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .portfolio-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--text);
+      background: none;
+      border: none;
+      font-size: 1.01em;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 7px 10px 7px 4px;
+      border-radius: 8px;
+      transition: background 0.16s, color 0.14s;
+      position: relative;
+      word-break: break-all;
+    }
+    .portfolio-link::after {
+      content: '↗';
+      font-size: 0.92em;
+      color: var(--accent);
+      margin-left: 4px;
+      opacity: 0.7;
+      transition: color 0.15s;
+    }
+    .portfolio-link:hover {
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+    }
+    .portfolio-link:hover::after {
+      color: #fff;
+    }
+
+    .download-btn {
+      margin-top: 38px;
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      padding: 12px 32px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.16s, box-shadow 0.16s;
+      box-shadow: 0 2px 14px 0 rgba(37,99,235,0.08);
+      letter-spacing: 0.01em;
+    }
+    .download-btn:hover {
+      background: var(--accent-dark);
+      box-shadow: 0 4px 20px 0 rgba(37,99,235,0.12);
+    }
+
+    @media (max-width: 650px) {
       .container {
-        padding: 20px 15px;
+        max-width: 100vw;
+        margin: 18px 0;
+        padding: 18px 4vw 23px 4vw;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
       }
-      
-      .card {
-        padding: 25px;
+      .name {
+        font-size: 1.28rem;
       }
-      
-      h1 {
-        font-size: 2.2rem;
+      .section-title {
+        font-size: 1rem;
       }
-      
-      .contact-info {
-        flex-direction: column;
-        align-items: center;
+      .download-btn {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1.02rem;
       }
-      
-      h2 {
-        font-size: 1.6rem;
-      }
+    }
+
+    /* Subtle fade-in animation */
+    .container {
+      opacity: 0;
+      animation: fadeIn 0.7s ease-in 0.15s forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(24px);}
+      to   { opacity: 1; transform: none;}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <div class="header">
-        <h1>Thomas C Thomas</h1>
-        <p class="subtitle">Content Strategy Leader | Digital Growth | AI-Driven Content</p>
-        <div class="contact-info">
-          <a href="mailto:thomasct777@gmail.com" class="contact-item">✉ thomasct777@gmail.com</a>
-          <a href="tel:+919986082807" class="contact-item">📱 +91 9986082807</a>
-          <span class="contact-item">📍 Bangalore, India</span>
-        </div>
+  <main class="container">
+    <header class="header">
+      <h1 class="name">Thomas C Thomas</h1>
+      <div class="subtitle">Content Strategy Leader &bull; Digital Growth &bull; AI-Driven Content</div>
+      <div class="contact">
+        <a href="mailto:thomasct777@gmail.com">thomasct777@gmail.com</a>
+        <a href="tel:+919986082807">+91 99860 82807</a>
+        <span>Bangalore, India</span>
+        <a href="https://www.linkedin.com/in/thomasct777" target="_blank" rel="noopener">LinkedIn</a>
       </div>
+    </header>
+    
+    <section class="section">
+      <div class="section-title">Product Pages</div>
+      <ul class="portfolio-list">
+        <li>
+          <a class="portfolio-link" href="https://draup.com/etter" target="_blank">Etter AI</a>
+        </li>
+        <li>
+          <a class="portfolio-link" href="https://draup.com/curie" target="_blank">Curie by Draup</a>
+        </li>
+        <li>
+          <a class="portfolio-link" href="https://draup.com/" target="_blank">Draup</a>
+        </li>
+      </ul>
+    </section>
 
-      <div class="note">
-        <strong>Note:</strong> This is a sample of my work from the past year, showcasing strategic content development across various formats and platforms.
-      </div>
+    <section class="section">
+      <div class="section-title">Pre-sales Decks</div>
+      <ul class="portfolio-list">
+        <li>
+          <a class="portfolio-link" href="https://your-link.com/pre-sales-decks" target="_blank">Decks for Pre-sales Email Campaigns</a>
+        </li>
+      </ul>
+    </section>
 
-      <h2>📋 Portfolio</h2>
+    <section class="section">
+      <div class="section-title">Frameworks &amp; Reports</div>
+      <ul class="portfolio-list">
+        <li>
+          <a class="portfolio-link" href="https://drive.google.com/file/d/1BT4wz7OqYWuESFe4qIXcmAM8Ra3G2ik7/view?usp=sharing" target="_blank">Skills-Based Workforce Transformation Framework (PDF)</a>
+        </li>
+        <li>
+          <a class="portfolio-link" href="https://drive.google.com/file/d/1x3pTZU1RbLR6y5aNiv8WGJtDoXZXWIVF/view?usp=sharing" target="_blank">Talent Location Resilience (PDF)</a>
+        </li>
+      </ul>
+    </section>
 
-      <div class="portfolio-section">
-        <div class="section-title">🎯 Product Pages (Copy & Layout Suggestions)</div>
-        <div class="portfolio-grid">
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Etter AI - Product Page Copy & Layout</a>
-          </div>
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Curie by Draup - Product Positioning</a>
-          </div>
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Draup - Main Product Pages</a>
-          </div>
-        </div>
-      </div>
+    <section class="section">
+      <div class="section-title">Whitepapers</div>
+      <ul class="portfolio-list">
+        <li>
+          <a class="portfolio-link" href="https://draup.com/sales/whitepaper/maximizing-enterprise-deal-conversion-through-ai-driven-abm" target="_blank">Maximizing Enterprise Deal Conversion through AI-Driven ABM</a>
+        </li>
+        <li>
+          <a class="portfolio-link" href="https://draup.com/talent/whitepapers/what-is-talent-intelligence-a-guide-for-hr-leaders" target="_blank">What is Talent Intelligence? A Guide for HR Leaders – Draup</a>
+        </li>
+      </ul>
+    </section>
 
-      <div class="portfolio-section">
-        <div class="section-title">📊 Strategic Frameworks & Reports</div>
-        <div class="portfolio-grid">
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Skills-Based Workforce Transformation Framework</a>
-          </div>
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Talent Location Resilience Report</a>
-          </div>
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Pre-sales Email Campaign Decks</a>
-          </div>
-        </div>
-      </div>
+    <section class="section">
+      <div class="section-title">Blogs</div>
+      <ul class="portfolio-list">
+        <li>
+          <a class="portfolio-link" href="https://draup.com/sales/blog/unlocking-trapped-value-how-better-account-planning-saves-millions" target="_blank">Account Planning with AI: Save Millions Unlocking the Tapper Value</a>
+        </li>
+        <li>
+          <a class="portfolio-link" href="https://draup.com/sales/blog/agentic-ai-powered-account-planning-transforming-abm-with-real-time-adaptive-intelligence" target="_blank">Agentic AI: Adapting Marketing to Real-Time Insights</a>
+        </li>
+        <li>
+          <a class="portfolio-link" href="https://draup.com/talent/blogs/the-skills-quadrant-your-blueprint-for-strategic-skills-based-hiring" target="_blank">Skills-Based Hiring Strategy by Skills Quadrant Framework</a>
+        </li>
+      </ul>
+    </section>
 
-      <div class="portfolio-section">
-        <div class="section-title">📝 Whitepapers & Research</div>
-        <div class="portfolio-grid">
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Maximizing Enterprise Deal Conversion through AI-Driven ABM</a>
-          </div>
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">What is Talent Intelligence? A Guide for HR Leaders</a>
-          </div>
-        </div>
-      </div>
+    <section class="section">
+      <div class="section-title">Email Campaigns</div>
+      <ul class="portfolio-list">
+        <li>
+          <a class="portfolio-link" href="https://docs.google.com/document/d/1TZYDW6ecUw3aIvEXxnGsg4MYokU6LTccHjCsjseF4ls/edit?usp=sharing" target="_blank">Portfolio – Emails</a>
+        </li>
+      </ul>
+    </section>
 
-      <div class="portfolio-section">
-        <div class="section-title">✍️ Blog Articles</div>
-        <div class="portfolio-grid">
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Account Planning with AI: Save Millions Unlocking the Tapper Value</a>
-          </div>
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Agentic AI: Adapting Marketing to Real-Time Insights</a>
-          </div>
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Skills-Based Hiring Strategy by Skills Quadrant Framework</a>
-          </div>
-        </div>
-      </div>
+    <section class="section">
+      <div class="section-title">Brochure</div>
+      <ul class="portfolio-list">
+        <li>
+          <a class="portfolio-link" href="https://drive.google.com/file/d/1fiWt-gXRKJz3zQUcT_UGHwBzcrUUkt0L/view?usp=sharing" target="_blank">CurieBrochure.pdf</a>
+        </li>
+      </ul>
+    </section>
 
-      <div class="portfolio-section">
-        <div class="section-title">📧 Email Campaigns & Marketing Materials</div>
-        <div class="portfolio-grid">
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Email Campaign Portfolio Collection</a>
-          </div>
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Curie Product Brochure Content</a>
-          </div>
-        </div>
-      </div>
+    <section class="section">
+      <div class="section-title">Video</div>
+      <ul class="portfolio-list">
+        <li>
+          <a class="portfolio-link" href="https://www.youtube.com/watch?v=SIcii0yxfFo&pp=ygUFZHJhdXA%3D" target="_blank">Curie by Draup: Agentic AI for Enterprise HR Teams</a>
+        </li>
+      </ul>
+    </section>
 
-      <div class="portfolio-section">
-        <div class="section-title">🎥 Video Content</div>
-        <div class="portfolio-grid">
-          <div class="portfolio-item">
-            <a href="#" class="portfolio-link">Curie by Draup: Agentic AI for Enterprise HR Teams (Script & Visual Direction)</a>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="#" class="download-link">📄 Download Full Resume</a>
-      </div>
-
-      <div style="text-align: center; margin-top: 30px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #718096;">
-        <p>Ready to collaborate? Let's create content that drives results.</p>
-      </div>
-    </div>
-  </div>
+    <a class="download-btn" href="https://drive.google.com/file/d/1L0UiPZImCRAlFrdtqdvibGGMZvvuvkiP/view?usp=sharing" target="_blank">
+      Download Resume
+    </a>
+  </main>
 </body>
 </html>
